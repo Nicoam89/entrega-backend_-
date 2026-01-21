@@ -1,0 +1,31 @@
+<h1>Lista de productos</h1>
+
+{{#if payload.length}}
+  <ul>
+    {{#each payload}}
+      <li>
+        <h3>{{this.title}}</h3>
+        <p>{{this.description}}</p>
+        <p>Precio: ${{this.price}}</p>
+        <p>Categoría: {{this.category}}</p>
+        <a href="/products/{{this._id}}">Ver detalle</a>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No hay productos para mostrar</p>
+{{/if}}
+
+<hr>
+
+<div>
+  {{#if hasPrevPage}}
+    <a href="{{prevLink}}">⬅ Página anterior</a>
+  {{/if}}
+
+  Página {{page}} de {{totalPages}}
+
+  {{#if hasNextPage}}
+    <a href="{{nextLink}}">Página siguiente ➡</a>
+  {{/if}}
+</div>
