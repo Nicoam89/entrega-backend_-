@@ -20,11 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Ruta de prueba
-app.get("/ping", (req, res) => {
-  res.send("pong");
-});
-
 // Handlebars
 app.engine("handlebars", handlebars.engine());
 app.set("view engine", "handlebars");
@@ -34,6 +29,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
+
 
 // Mongo + Server
 const PORT = 8080;

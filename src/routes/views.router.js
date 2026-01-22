@@ -7,7 +7,7 @@ const router = Router();
 /**
  * Vista de productos con paginación
  */
-router.get("/products", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     let { limit = 10, page = 1, sort, query } = req.query;
 
